@@ -3,6 +3,10 @@
 require 'active_support/inflector'
 
 guard 'rspec', all_after_pass: false, cli: '--drb' do
+  # Watches the view files
+  # Captures the dir within the ( ) and uses that in the block when it directs which file should be run
+  watch(%r{^app/views/(.+)/}) { |m| "spec/requests/#{m[1]}_spec.rb" }
+
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }

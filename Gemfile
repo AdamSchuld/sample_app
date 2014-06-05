@@ -4,7 +4,6 @@ ruby '2.0.0'
 gem 'rails', '4.0.5'
 
 group :development, :test do
-    gem 'sqlite3'
     gem 'rspec-rails', '2.13.1'
     gem 'guard-rspec', '2.5.0'
     gem 'spork-rails', '4.0.0'
@@ -17,6 +16,9 @@ group :test do
     gem 'capybara', '2.1.0'
     gem 'growl'
 end
+
+# Postgres for local and Heroku
+gem 'pg', '0.15.1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '4.0.1'
@@ -45,7 +47,6 @@ group :doc do
 end
 
 group :production do
-    gem 'pg', '0.15.1'
     gem 'rails_12factor', '0.0.2'
 end
 
